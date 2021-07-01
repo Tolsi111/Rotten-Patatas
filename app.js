@@ -9,9 +9,18 @@ app.set('view engine', 'handlebars');
 // app.get('/',(req,res) => {
 //     res.send('Mega amice!')
 // })
-app.get('/', (req, res) => {
-    res.render('home', { msg: 'Handlebars are Cool!' });
-  })
+
+//Mock array of projects
+let reviews =[
+  { title: "Great Review", movieTitle: "Ice age 3", reviewer: "Andrei"},
+  { title: "Review pasta medie", movieTitle: "Jurassic park 3", reviewer: "Alt Andrei"},
+  { title: "Bad Review", movieTitle: "Titanic", reviewer: "Ceva femeie"}
+]
+///INDEX
+app.get('/',(req,res) => {
+  res.render('reviews-index',{reviews: reviews})
+})
+
 
 app.listen(3000, () => {
     console.log('App listening to port 3000')
